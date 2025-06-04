@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Video Conference</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="video-container">
+      <!-- Main remote video/screen -->
+      <div class="remote-video-container">
+        <video id="remoteVideo" autoplay playsinline></video>
+      </div>
+      
+      <!-- Local video pip -->
+      <div class="local-video-pip">
+        <video id="localVideo" autoplay playsinline muted></video>
+      </div>
+    </div>
+
+    <!-- Control bar -->
+    <div class="control-bar">
+      <button id="muteBtn" class="control-btn" title="Mute">
+        <i class="fas fa-microphone"></i>
+      </button>
+      
+      <button id="videoBtn" class="control-btn" title="Stop Video">
+        <i class="fas fa-video"></i>
+      </button>
+      
+      <button id="screenShareBtn" class="control-btn" title="Share Screen">
+        <i class="fas fa-desktop"></i>
+      </button>
+      
+      <button id="startBtn" class="control-btn primary" title="Start Call">
+        <i class="fas fa-play"></i>
+      </button>
+      
+      <div class="room-control">
+        <input type="text" id="roomId" placeholder="Room ID">
+        <button id="joinBtn" class="control-btn" title="Join Room">
+          <i class="fas fa-sign-in-alt"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

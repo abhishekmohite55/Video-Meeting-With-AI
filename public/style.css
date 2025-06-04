@@ -1,0 +1,139 @@
+:root {
+  --primary-color: #4a6bff;
+  --danger-color: #ff4a4a;
+  --success-color: #4aff6b;
+  --control-bg: #2e2e3e;
+  --bg-color: #1e1e2e;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg-color);
+  color: white;
+  height: 100vh;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.video-container {
+  flex: 1 1 auto;
+  position: relative;
+  background-color: black;
+  min-height: 0;
+}
+
+.remote-video-container {
+  width: 100%;
+  height: 100%;
+}
+
+.remote-video-container video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.local-video-pip {
+  position: absolute;
+  bottom: 80px;
+  right: 20px;
+  width: 20%;
+  max-width: 300px;
+  min-width: 150px;
+  border: 2px solid var(--control-bg);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  z-index: 5;
+}
+
+.local-video-pip video {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.control-bar {
+  flex: 0 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  padding: 15px;
+  background-color: var(--control-bg);
+  z-index: 10;
+}
+
+.control-btn {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: none;
+  background-color: #3e3e4e;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.control-btn:hover {
+  background-color: #4e4e5e;
+  transform: scale(1.1);
+}
+
+.control-btn.primary {
+  background-color: var(--primary-color);
+}
+
+.control-btn.primary:hover {
+  background-color: #5a7bff;
+}
+
+.control-btn.danger {
+  background-color: var(--danger-color);
+}
+
+.control-btn.danger:hover {
+  background-color: #ff5a5a;
+}
+
+.control-btn.active {
+  background-color: var(--success-color);
+}
+
+.room-control {
+  display: flex;
+  gap: 10px;
+  margin-left: 20px;
+}
+
+.room-control input {
+  padding: 12px 15px;
+  border: none;
+  border-radius: 25px;
+  background-color: #3e3e4e;
+  color: white;
+  width: 150px;
+}
+
+.room-control input::placeholder {
+  color: #aaa;
+}
+
+/* Ensure video elements are always visible */
+video {
+  background-color: #000 !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
