@@ -48,7 +48,12 @@
     </div>
   </div>
 
-  <script src="/socket.io/socket.io.js"></script>
-  <script src="script.js"></script>
+  <script src="/scripts/socket.io.min.js"></script>
+  <script src="/script.js" type="module"></script>
+  <!-- Load Socket.IO from CDN (more reliable) -->
+  <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+
+  <!-- Load your script.js with correct MIME type -->
+  <script src="/script.js" type="application/javascript"></script>
 </body>
 </html>
