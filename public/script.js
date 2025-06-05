@@ -49,6 +49,13 @@ function init() {
         // Only process offer if we're not the initiator
         if (!isInitiator) {
           await peerConnection.setRemoteDescription(new RTCSessionDescription(data.signal));
+          // Process queued ICE candidates
+          if (peerConnection.candidateQueue) {
+            for (const candidate of peerConnection.candidateQueue) {
+              await peerConnection.addIceCandidate(new RTCIceCandidate(candidate));
+            }
+            peerConnection.candidateQueue = [];
+          }
           const answer = await peerConnection.createAnswer();
           await peerConnection.setLocalDescription(answer);
           socket.emit('signal', {
@@ -92,6 +99,12 @@ function init() {
       delete peerConnections[userId];
     }
     resetCall();
+  });
+
+  socket.on('room-full', () => {
+    alert('Room is full. Only 2 participants allowed.');
+    roomIdInput.disabled = false;
+    joinBtn.disabled = false;
   });
 
   // Button event listeners
